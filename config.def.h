@@ -74,12 +74,12 @@ static const char *termcmd[]  = { "st", NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		{ "color0",             STRING,  &normbgcolor },
-		{ "color0",             STRING,  &normbordercolor },
-		{ "color4",             STRING,  &normfgcolor },
-		{ "color4",             STRING,  &selbgcolor },
-		{ "color8",             STRING,  &selbordercolor },
-		{ "color0"    ,         STRING,  &selfgcolor },
+		{ "dwm.color0",             STRING,  &normbgcolor },
+		{ "dwm.color0",             STRING,  &normbordercolor },
+		{ "dwm.color4",             STRING,  &normfgcolor },
+		{ "dwm.color4",             STRING,  &selbgcolor },
+		{ "dwm.color8",             STRING,  &selbordercolor },
+		{ "dwm.color0"    ,         STRING,  &selfgcolor },
 		{ "borderpx",          	INTEGER, &borderpx },
 		{ "snap",          		INTEGER, &snap },
 		{ "showbar",          	INTEGER, &showbar },
@@ -122,6 +122,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
