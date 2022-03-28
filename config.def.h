@@ -2,23 +2,23 @@
 
 /* appearance */
 
-static unsigned int borderpx  = 1;        /* border pixel of windows */
+static unsigned int borderpx  = 4;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static unsigned int gappoh    = 15;       /* horiz outer gap between windows and screen edge */
+static unsigned int gappov    = 15;       /* vert outer gap between windows and screen edge */
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10", "Symbola:pixelsize=12:antialias=true:autohint=true" };
+static const char *fonts[]          = { "monospace:size=10","Symbola:pixelsize=12:antialias=true:autohint=true", "FontAwesome:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#770000";
-static char selbgcolor[]            = "#005577";
+static char selbgcolor[]            = "#2a8e68";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -35,7 +35,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  NULL,       NULL,    1<<8,            0,           -1 },
 };
 
 /* layout(s) */
@@ -80,13 +80,13 @@ ResourcePref resources[] = {
 		{ "dwm.color4",             STRING,  &selbgcolor },
 		{ "dwm.color8",             STRING,  &selbordercolor },
 		{ "dwm.color0"    ,         STRING,  &selfgcolor },
-		{ "borderpx",          	INTEGER, &borderpx },
-		{ "snap",          		INTEGER, &snap },
-		{ "showbar",          	INTEGER, &showbar },
-		{ "topbar",          	INTEGER, &topbar },
-		{ "nmaster",          	INTEGER, &nmaster },
-		{ "resizehints",       	INTEGER, &resizehints },
-		{ "mfact",      	 	FLOAT,   &mfact },
+		{ "borderpx",          			INTEGER, &borderpx },
+		{ "snap",          					INTEGER, &snap },
+		{ "showbar",          			INTEGER, &showbar },
+		{ "topbar",          				INTEGER, &topbar },
+		{ "nmaster",          			INTEGER, &nmaster },
+		{ "resizehints",       			INTEGER, &resizehints },
+		{ "mfact",      	 					FLOAT,   &mfact },
 };
 
 static Key keys[] = {
@@ -106,7 +106,7 @@ static Key keys[] = {
 /*	{ MODKEY|Mod4Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },*/
 /*	{ MODKEY|Mod4Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },*/
 /*	{ MODKEY|Mod4Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },*/
-	{ MODKEY,	                XK_a,      togglegaps,     {0} },
+	{ MODKEY,	     			            XK_a,      togglegaps,     {0} },
 	{ MODKEY|ShiftMask,             XK_a,      defaultgaps,    {0} },
 /*	{ MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },*/
 /*	{ MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },*/
@@ -118,7 +118,7 @@ static Key keys[] = {
 /*	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },*/
 	{ MODKEY|ControlMask,           XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,	                XK_q,      killclient,     {0} },
+	{ MODKEY,	          		        XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
